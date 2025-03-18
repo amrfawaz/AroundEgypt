@@ -44,6 +44,7 @@
 		428F751F2D8972B600165F8F /* AroundEgyptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AroundEgyptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F75232D8972B600165F8F /* AroundEgyptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundEgyptUITests.swift; sourceTree = "<group>"; };
 		428F75252D8972B600165F8F /* AroundEgyptUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundEgyptUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		428F75332D8977D200165F8F /* Packages */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Packages; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +75,7 @@
 		428F74FC2D8972B300165F8F = {
 			isa = PBXGroup;
 			children = (
+				428F75332D8977D200165F8F /* Packages */,
 				428F75072D8972B300165F8F /* AroundEgypt */,
 				428F75182D8972B600165F8F /* AroundEgyptTests */,
 				428F75222D8972B600165F8F /* AroundEgyptUITests */,
