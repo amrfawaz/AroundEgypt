@@ -41,4 +41,10 @@ public extension Style {
         /// 96.0
         public static let px96: Double = 96.0
     }
+
+    enum Size {
+        public static let experienceCardHeight: Double = 200
+        public static let experienceCardWidth: Double = 339
+        public static let experienceCardImageHeight: Double = 154
+    }
 }

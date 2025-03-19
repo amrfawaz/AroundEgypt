@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Experiences
 
 @main
-struct AroundEgyptApp: App {
+struct WordFinderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let repository = ExperienceRepositoryImpl(api: ExperienceAPI())
+            let experiencesUseCase = FetchExperiencesUseCase(repository: repository)
+            let viewModel = ExperiencesViewModel(fetchExperiencesUseCase: experiencesUseCase)
+            
+            ExperiencesView(viewModel: viewModel)
         }
     }
 }

@@ -21,6 +21,9 @@ let package = Package(
         .library(
             name: "RealmManager",
             targets: ["RealmManager"]),
+        .library(
+            name: "Experiences",
+            targets: ["Experiences"]),
     ],
     dependencies: [
         .package(url: "https://github.com/realm/realm-cocoa", from: "10.5.0")
@@ -37,6 +40,15 @@ let package = Package(
         .target(
             name: "CoreInterface",
             dependencies: []
+        ),
+        .target(
+            name: "Experiences",
+            dependencies: [
+                "EnvironmentVariables",
+                "CoreInterface",
+                "Networking",
+                "RealmManager"
+            ]
         ),
         .target(
             name: "RealmManager",

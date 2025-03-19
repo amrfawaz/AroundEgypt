@@ -8,7 +8,7 @@
 import Foundation
 
 public enum EnvironmentVariables: String {
-    case baseUrl = "aroundegypt.34ml.com/api"
+    case baseUrl = "https://aroundegypt.34ml.com/api"
     case version = "/v2"
     case experiencesEndPoint = "/experiences"
     case likeExperienceEndpoint = "/like"
@@ -16,27 +16,27 @@ public enum EnvironmentVariables: String {
     case searchUrls = "https://api.dictionaryapi.dev/api/v2/entries/en"
 
     
-    public var recommendedExperiencesUrl: String {
+    public static var recommendedExperiencesUrl: String {
         EnvironmentVariables.baseUrl.rawValue +
         EnvironmentVariables.version.rawValue +
         EnvironmentVariables.experiencesEndPoint.rawValue +
         "?filter[recommended]=true"
     }
 
-    public var recentExperiences: String {
+    public static var recentExperiences: String {
         EnvironmentVariables.baseUrl.rawValue +
         EnvironmentVariables.version.rawValue +
         EnvironmentVariables.experiencesEndPoint.rawValue
     }
 
-    public func experience(id: String) -> String {
+    public static func experience(id: String) -> String {
         EnvironmentVariables.baseUrl.rawValue +
         EnvironmentVariables.version.rawValue +
         EnvironmentVariables.experiencesEndPoint.rawValue
         + id
     }
 
-    public func likeexperience(id: String) -> String {
+    public static func likeExperience(id: String) -> String {
         EnvironmentVariables.baseUrl.rawValue +
         EnvironmentVariables.version.rawValue +
         EnvironmentVariables.experiencesEndPoint.rawValue +

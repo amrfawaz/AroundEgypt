@@ -14,6 +14,7 @@
 		428F751A2D8972B600165F8F /* AroundEgyptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F75192D8972B600165F8F /* AroundEgyptTests.swift */; };
 		428F75242D8972B600165F8F /* AroundEgyptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F75232D8972B600165F8F /* AroundEgyptUITests.swift */; };
 		428F75262D8972B600165F8F /* AroundEgyptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F75252D8972B600165F8F /* AroundEgyptUITestsLaunchTests.swift */; };
+		428F75362D89CB5B00165F8F /* Experiences in Frameworks */ = {isa = PBXBuildFile; productRef = 428F75352D89CB5B00165F8F /* Experiences */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428F75362D89CB5B00165F8F /* Experiences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +82,7 @@
 				428F75182D8972B600165F8F /* AroundEgyptTests */,
 				428F75222D8972B600165F8F /* AroundEgyptUITests */,
 				428F75062D8972B300165F8F /* Products */,
+				428F75342D89CB5B00165F8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +132,13 @@
 			path = AroundEgyptUITests;
 			sourceTree = "<group>";
 		};
+		428F75342D89CB5B00165F8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +155,9 @@
 			dependencies = (
 			);
 			name = AroundEgypt;
+			packageProductDependencies = (
+				428F75352D89CB5B00165F8F /* Experiences */,
+			);
 			productName = AroundEgypt;
 			productReference = 428F75052D8972B300165F8F /* AroundEgypt.app */;
 			productType = "com.apple.product-type.application";
@@ -584,6 +597,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		428F75352D89CB5B00165F8F /* Experiences */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Experiences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 428F74FD2D8972B300165F8F /* Project object */;
 }
