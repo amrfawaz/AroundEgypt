@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SharedModels
 
 public struct FetchExperiencesResponse: Codable {
     let data: [Experience]

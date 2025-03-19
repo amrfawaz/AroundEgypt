@@ -48,7 +48,6 @@ private extension ExpericeCardView {
             }
         }
         .clipShape(.rect(cornerRadius: Style.Spacing.md))
-
     }
 
     var overlayView: some View {
@@ -56,7 +55,6 @@ private extension ExpericeCardView {
             .foregroundStyle(.black)
             .opacity(0.1)
             .clipShape(.rect(cornerRadius: Style.Spacing.md))
-
     }
 }
 

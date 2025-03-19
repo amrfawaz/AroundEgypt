@@ -46,5 +46,6 @@ public extension Style {
         public static let experienceCardHeight: Double = 200
         public static let experienceCardWidth: Double = 339
         public static let experienceCardImageHeight: Double = 154
+        public static let experienceImageCoverHeight: Double = 285
     }
 }

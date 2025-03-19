@@ -7,7 +7,7 @@
 
 import EnvironmentVariables
 import Combine
-import Foundation
+import SharedModels
 
 enum ExpericesCardViewAction {
     case didTapExperienceCard

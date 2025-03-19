@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-//import MovieDetails
+import SharedModels
 
 final public class ExperiencesViewModel: ObservableObject {
     @Published var recentExperiences: [Experience] = []

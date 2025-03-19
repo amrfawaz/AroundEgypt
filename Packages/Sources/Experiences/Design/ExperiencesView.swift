@@ -7,7 +7,8 @@
 
 import SwiftUI
 import CoreInterface
-//import MovieDetails
+import SharedModels
+import ExperienceDetails
 
 public struct ExperiencesView: View {
     @ObservedObject private var viewModel: ExperiencesViewModel
@@ -91,6 +92,13 @@ private extension ExperiencesView {
                             }
                     }
                 }
+                .navigationDestination(for: Experience.self) { experience in
+                    let experienceDetailsViewModel = Container.getExperienceDetailsViewModel(experienceId: experience.id)
+                    ExperienceDetailsView(
+                        viewModel: experienceDetailsViewModel,
+                        path: $path
+                    )
+                }
             }
         }
     }
@@ -126,6 +134,13 @@ private extension ExperiencesView {
                             }
                         }
                 }
+            }
+            .navigationDestination(for: Experience.self) { experience in
+                let experienceDetailsViewModel = Container.getExperienceDetailsViewModel(experienceId: experience.id)
+                ExperienceDetailsView(
+                    viewModel: experienceDetailsViewModel,
+                    path: $path
+                )
             }
         }
     }
