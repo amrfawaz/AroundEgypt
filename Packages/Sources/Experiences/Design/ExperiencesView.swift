@@ -106,21 +106,34 @@ private extension ExperiencesView {
 
 private extension ExperiencesView {
     var list: some View {
-        LazyVStack {
-            ForEach(viewModel.recentExperiences) { experience in
-                let expericeCardViewModel = ExpericeCardViewModel(experience: experience)
+        VStack(
+            alignment: .leading,
+            spacing: Style.Spacing.xxs
+        ) {
+            recentExperienceTitle
 
-                ExpericeCardView(viewModel: expericeCardViewModel)
-                    .onReceive(expericeCardViewModel.subject) { action in
-                        switch action {
-                        case .didTabHeartButton:
-                            expericeCardViewModel.like()
-                        case .didTapExperienceCard:
-                            path.append(experience)
+            LazyVStack {
+                ForEach(viewModel.recentExperiences) { experience in
+                    let expericeCardViewModel = ExpericeCardViewModel(experience: experience)
+                    
+                    ExpericeCardView(viewModel: expericeCardViewModel)
+                        .onReceive(expericeCardViewModel.subject) { action in
+                            switch action {
+                            case .didTabHeartButton:
+                                expericeCardViewModel.like()
+                            case .didTapExperienceCard:
+                                path.append(experience)
+                            }
                         }
-                    }
+                }
             }
         }
+    }
+
+    var recentExperienceTitle: some View {
+        Text(ExperienceCategory.recent.title)
+            .typography(.heading02)
+            .foregroundStyle(.black)
     }
 }
 
