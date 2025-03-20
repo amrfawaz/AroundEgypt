@@ -6,10 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
 public struct Experience: Identifiable, Hashable, Codable {
-    public let id: String
-
+    public var id: String
     public let title: String
     public let coverPhoto: String
     public let description: String
@@ -29,6 +29,20 @@ public struct Experience: Identifiable, Hashable, Codable {
         case detailedDescription = "detailed_description"
         case isLiked = "is_liked"
         case tourHtml = "tour_html"
+    }
+}
+
+extension Experience {
+    public init(realmExperience: RealmExperience) {
+        self.id = realmExperience.id
+        self.title = realmExperience.title
+        self.coverPhoto = realmExperience.coverPhoto
+        self.description = realmExperience.shortDescription
+        self.viewsCount = realmExperience.viewsCount
+        self.numberOfLikes = realmExperience.numberOfLikes
+        self.detailedDescription = realmExperience.detailedDescription
+        self.isLiked = realmExperience.isLiked
+        self.tourHtml = realmExperience.tourHtml
     }
 }
 

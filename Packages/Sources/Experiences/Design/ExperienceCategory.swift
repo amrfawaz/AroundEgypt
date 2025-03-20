@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ExperienceCategory {
+public enum ExperienceCategory: String {
     case recent
     case recommended
 

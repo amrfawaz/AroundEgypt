@@ -35,6 +35,7 @@ public class RealmManager {
                 do {
                     try realm.write {
                         realm.add(items, update: .modified)
+                        realm.refresh()
                     }
                 } catch {
                     print("Error saving objects to Realm: \(error.localizedDescription)")

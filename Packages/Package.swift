@@ -70,7 +70,9 @@ let package = Package(
         ),
         .target(
             name: "SharedModels",
-            dependencies: []
+            dependencies: [
+                .product(name: "RealmSwift", package: "realm-cocoa"),
+            ]
         ),
         .target(
             name: "RealmManager",

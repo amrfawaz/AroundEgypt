@@ -12,4 +12,7 @@ struct FetchRecommendedExperiencesRequest: FetchExperiencesRequest {
     var endPoint: String {
         return EnvironmentVariables.recommendedExperiencesUrl
     }
+    var category: ExperienceCategory {
+        .recommended
+    }
 }

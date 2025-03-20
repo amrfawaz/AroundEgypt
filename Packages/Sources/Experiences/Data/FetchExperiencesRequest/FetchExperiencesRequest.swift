@@ -12,6 +12,7 @@ import Networking
 public protocol FetchExperiencesRequest {
     var endPoint: String { get }
     var request: URLRequest? { get }
+    var category: ExperienceCategory { get }
 }
 
 extension FetchExperiencesRequest {

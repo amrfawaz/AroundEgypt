@@ -22,10 +22,6 @@ public struct ExperiencesView: View {
         NavigationStack(path: $path) {
             content
                 .padding(.all, Style.Spacing.md)
-                .task {
-                    await viewModel.fetchExperiences(category: .recommended)
-                    await viewModel.fetchExperiences(category: .recent)
-                }
                 .alert(isPresented: Binding<Bool>(
                     get: { !viewModel.errorMessage.isEmpty },
                     set: { newValue in
@@ -39,6 +35,12 @@ public struct ExperiencesView: View {
                         message: Text(viewModel.errorMessage),
                         dismissButton: .default(Text("OK"))
                     )
+                }
+                .onFirstAppear {
+                    Task {
+                        await viewModel.fetchExperiences(category: .recommended)
+                        await viewModel.fetchExperiences(category: .recent)
+                    }
                 }
         }
     }

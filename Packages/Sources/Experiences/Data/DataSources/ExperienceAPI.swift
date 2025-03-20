@@ -16,6 +16,8 @@ public protocol ExperienceAPIProtocol {
 public class ExperienceAPI: ExperienceAPIProtocol {    
     private let networkManager: NetworkManager
     private let urlSession = URLSession.shared
+    private let realmService = RealmService()
+
 
     public init(networkManager: NetworkManager = NetworkManager()) {
         self.networkManager = networkManager
@@ -26,12 +28,14 @@ public class ExperienceAPI: ExperienceAPIProtocol {
 
         print(url.absoluteString)
 
-        guard let request = request.request else { throw NetworkError.invalidRequest }
-
+        guard let urlRequest = request.request else { throw NetworkError.invalidRequest }
+        
         do {
-            return try await networkManager.request(request: request, of: FetchExperiencesResponse.self)
+            let response = try await networkManager.request(request: urlRequest, of: FetchExperiencesResponse.self)
+            self.realmService.cacheExperiences(experiences: response.data, category: request.category.rawValue)
+            return response
         } catch {
-            throw error
+            return FetchExperiencesResponse(data: self.realmService.fetchCachedExperiences(category: request.category.rawValue))
         }
     }
 }
