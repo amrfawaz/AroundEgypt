@@ -9,4 +9,5 @@ import Foundation
 
 public protocol ExperienceRepository {
     func fetchExperiences<T: FetchExperiencesRequest>(request: T) async throws -> FetchExperiencesResponse
+    func likeExperience<T: FetchExperiencesRequest>(request: T) async throws -> LikeExperienceResponse
 }

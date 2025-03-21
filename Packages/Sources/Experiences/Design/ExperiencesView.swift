@@ -87,6 +87,9 @@ private extension ExperiencesView {
                             .onReceive(expericeCardViewModel.subject) { action in
                                 switch action {
                                 case .didTabHeartButton:
+                                    Task {
+                                        await viewModel.likeExperience(id: expericeCardViewModel.experienceId)
+                                    }
                                     expericeCardViewModel.like()
                                 case .didTapExperienceCard:
                                     path.append(experience)

@@ -14,7 +14,7 @@ struct WordFinderApp: App {
         WindowGroup {
             let repository = ExperienceRepositoryImpl(api: ExperienceAPI())
             let experiencesUseCase = FetchExperiencesUseCase(repository: repository)
-            let viewModel = ExperiencesViewModel(fetchExperiencesUseCase: experiencesUseCase)
+            let viewModel = ExperiencesViewModel(experiencesUseCase: experiencesUseCase)
             
             ExperiencesView(viewModel: viewModel)
         }

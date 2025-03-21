@@ -32,6 +32,7 @@ public enum NetworkError: Error {
 
 public enum HTTPMethod: String {
     case get = "GET"
+    case post = "POST"
 }
 
 public class NetworkManager {

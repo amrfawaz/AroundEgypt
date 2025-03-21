@@ -24,10 +24,10 @@ final public class ExperiencesViewModel: ObservableObject {
 
     var isLoading: Bool = false
 
-    private let fetchExperiencesUseCase: FetchExperiencesUseCase
+    private let experiencesUseCase: FetchExperiencesUseCase
 
-    public init(fetchExperiencesUseCase: FetchExperiencesUseCase) {
-        self.fetchExperiencesUseCase = fetchExperiencesUseCase
+    public init(experiencesUseCase: FetchExperiencesUseCase) {
+        self.experiencesUseCase = experiencesUseCase
     }
 
     private func createExperiencesRequest(category: ExperienceCategory) -> FetchExperiencesRequest {
@@ -61,7 +61,7 @@ extension ExperiencesViewModel {
         isLoading = true
 
         do {
-            let response = try await fetchExperiencesUseCase.execute(request: createExperiencesRequest(category: category))
+            let response = try await experiencesUseCase.execute(request: createExperiencesRequest(category: category))
             DispatchQueue.main.async {
                 switch category {
                 case .recent:
@@ -69,6 +69,23 @@ extension ExperiencesViewModel {
                 case .recommended:
                     self.recommendedExperiences.append(contentsOf: response.data)
                 }
+                self.isLoading = false
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.errorMessage = error.localizedDescription
+                self.isLoading = false
+            }
+        }
+    }
+
+    func likeExperience(id: String) async {
+        guard !isLoading else { return }
+        isLoading = true
+
+        do {
+            let response = try await experiencesUseCase.likeExperience(request: LikeExperienceRequest(id: id))
+            DispatchQueue.main.async {
                 self.isLoading = false
             }
         } catch {

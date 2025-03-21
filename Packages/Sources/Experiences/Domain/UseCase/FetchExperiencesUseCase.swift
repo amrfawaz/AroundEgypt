@@ -18,6 +18,10 @@ public class FetchExperiencesUseCase {
     func execute<T: FetchExperiencesRequest>(request: T) async throws -> FetchExperiencesResponse {
         return try await repository.fetchExperiences(request: request)
     }
+
+    func likeExperience<T: FetchExperiencesRequest>(request: T) async throws -> LikeExperienceResponse {
+        return try await repository.likeExperience(request: request)
+    }
 }
 
 // MARK: - Mocks
@@ -38,6 +42,23 @@ final class MockFetchExperiencesUseCase: FetchExperiencesUseCase {
 
         do {
             let decodedResponse = try JSONDecoder().decode(FetchExperiencesResponse.self, from: data)
+            return decodedResponse
+        } catch {
+            throw NetworkError.decodingError
+        }
+    }
+
+    override func likeExperience<T: FetchExperiencesRequest>(request: T) async throws -> LikeExperienceResponse {
+        if let error = responseError {
+            throw error
+        }
+
+        guard let data = responseData else {
+            throw NetworkError.noData
+        }
+
+        do {
+            let decodedResponse = try JSONDecoder().decode(LikeExperienceResponse.self, from: data)
             return decodedResponse
         } catch {
             throw NetworkError.decodingError

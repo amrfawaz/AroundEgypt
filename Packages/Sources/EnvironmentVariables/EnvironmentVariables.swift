@@ -40,7 +40,7 @@ public enum EnvironmentVariables: String {
         EnvironmentVariables.baseUrl.rawValue +
         EnvironmentVariables.version.rawValue +
         EnvironmentVariables.experiencesEndPoint.rawValue +
-        id +
+        "/\(id)" +
         EnvironmentVariables.likeExperienceEndpoint.rawValue
     }
 }
