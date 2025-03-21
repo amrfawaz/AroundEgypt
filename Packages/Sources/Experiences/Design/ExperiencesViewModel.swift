@@ -84,7 +84,7 @@ extension ExperiencesViewModel {
         isLoading = true
 
         do {
-            let response = try await experiencesUseCase.likeExperience(request: LikeExperienceRequest(id: id))
+            try _ = await experiencesUseCase.likeExperience(request: LikeExperienceRequest(id: id))
             DispatchQueue.main.async {
                 self.isLoading = false
             }

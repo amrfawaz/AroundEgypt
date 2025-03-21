@@ -80,5 +80,13 @@ let package = Package(
                 .product(name: "RealmSwift", package: "realm-cocoa")
             ]
         ),
+        
+        .testTarget(
+            name: "ExperiencesTests",
+            dependencies: [
+                "Experiences"
+            ],
+            path: "Tests/ExperiencesTests"
+        )
     ]
 )
